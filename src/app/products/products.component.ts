@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Product } from '../Interfaces';
-import { ProductService } from '../Services/ProductService/product.service';
+import { Parcel } from '../Interfaces/parcel';
+import { ParcelService } from '../Services/ProductService/product.service';
 
 @Component({
   selector: 'app-products',
@@ -12,14 +12,14 @@ import { ProductService } from '../Services/ProductService/product.service';
   imports: [CommonModule,RouterModule]
 })
 export class ProductsComponent implements OnInit {
-  products:Product[]=[]
+  parcels:Parcel[]=[]
   categories:string[]=[]
-  constructor(private productService:ProductService , private router:Router, 
+  constructor(private parcelService:ParcelService , private router:Router, 
     private route:ActivatedRoute
     ){}
   ngOnInit(): void {
-    this.products= this.productService.getProducts()
-    this.categories=this.productService.getProductCategories()
+    this.parcels= this.parcelService.getParcel()
+    // this.categories=this.parcelService.getProductCategories()
        
   }
   LoadAdd(){

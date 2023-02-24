@@ -1,24 +1,22 @@
 <div class="content">
-    <div class="left">
-        <img src="https://imgs.search.brave.com/RXGbu7H62Myf-n35HIPXL2_kpJNhVSYLeVvRVw0KL74/rs:fit:1200:876:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZ2FtZXdhdGNo/ZXJzdGF0aWMuY29t/L2ltYWdlL2ZpbGUv/My9iMS8xMTIwNTMv/Z2FsbGVyeTAzLTAx/LWZ1bGwtMngtdjIt/Mi5qcGc" alt="">
-    </div>
-    <form [formGroup]="addProduct" (ngSubmit)="AddProduct()">
+    
+    <form [formGroup]="addParcel" (ngSubmit)="AddParcel()">
     <div class="right">
       
-        <h1> Add a New Product</h1>
+        <h1> Add a New Order</h1>
         <Label>Name</Label>
-        <input type="text" formControlName="name" />
+        <input type="text" formControlName="name" required=""/>
 
-        <Label>Description</Label>
-        <input type="text" formControlName="description" />
+        <Label>Email</Label>
+        <input type="text" formControlName="description" required pattern="[a-zA-Z0-9._%+-]+@travel\.com$"/>
+     
 
-        <Label>Image</Label>
+
+        <Label>Destination</Label>
         <input type="text" formControlName="image" />
 
-          <Label>Price</Label>
-        <input type="text" formControlName="price" />
-
-        <button type="submit"> Submit Data</button>
+        
+        <button type="submit">Add Order</button>
     
     </div>
 </form>

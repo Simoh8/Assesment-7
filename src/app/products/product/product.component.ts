@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Params, Router } from '@angular/router';
-import { Product } from '../../Interfaces';
-import { ProductService } from '../../Services/ProductService/product.service';
+import { Parcel } from 'src/app/Interfaces/parcel';
+import { ParcelService } from '../../Services/ProductService/product.service';
 
 @Component({
   selector: 'app-product',
@@ -11,21 +11,22 @@ import { ProductService } from '../../Services/ProductService/product.service';
   standalone: true,
   imports: [CommonModule]
 })
+
 export class ProductComponent implements OnInit  {
-product!:Product
+parcel!:Parcel
 show!:boolean
 constructor(private route:ActivatedRoute, private router:Router,
-  private productService:ProductService) {
+  private parcelService:ParcelService) {
 }
 
 ngOnInit(): void {
-  // this.route.params.subscribe((params:Params)=>{
-  //   console.log(params['id']);
-  //   this.product=this.productService.getOneProduct(+params['id'])
-  // })
+  this.route.params.subscribe((params:Params)=>{
+    console.log(params['id']);
+    this.parcel=this.parcelService.getOneParcel(+params['id'])
+  })
 
   this.route.data.subscribe((data:Data)=>{
-    this.product= data['product']
+    this.parcel= data['parcel']
     // console.log(data);
     
   })
@@ -33,7 +34,7 @@ ngOnInit(): void {
   this.route.queryParams.subscribe((params:Params)=>{
     console.log(params['showPrice']);
     params['showPrice']==='true'?this.show=true:this.show=false
-    // this.product=this.productService.getOneProduct(+params['id'])
+    this.parcel=this.parcelService.getOneParcel(+params['id'])
   })
 
 }

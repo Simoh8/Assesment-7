@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    width: 40%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+   
+
+}
+
+
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 50px;
+}
+button{
+    height: 2rem;
+    width: fit-content;
+    align-self: center;
+}
+input{
+    height: 3rem;
+    
+}

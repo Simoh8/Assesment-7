@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AddProduct, Product } from '../../Interfaces';
-import { ProductService } from '../../Services/ProductService/product.service';
+import {  Parcel } from '../../Interfaces/parcel';
+import { ParcelService } from '../../Services/ProductService/product.service';
+
 
 @Component({
   selector: 'app-add-product',
@@ -12,21 +13,21 @@ import { ProductService } from '../../Services/ProductService/product.service';
   imports: [CommonModule,ReactiveFormsModule]
 })
 export class AddProductComponent implements OnInit {
-  constructor( private fb: FormBuilder, private productService:ProductService) {
+  constructor( private fb: FormBuilder, private parcelService:ParcelService) {
         
   }
-  addProduct!:FormGroup
+  addParcel!:FormGroup
   ngOnInit(): void {
-    this.addProduct= this.fb.group({
+    this.addParcel= this.fb.group({
       name:[null, Validators.required],
-      description:[null, Validators.required],
-      image:[null, Validators.required],
-      price:[null, Validators.required]
+      email:[null, Validators.required],
+      destination:[null, Validators.required],
+      
     })
   }
 
-  AddProduct(){
-    let product :Product= {...this.addProduct.value, id:Math.floor(Math.random() *10000)};
-    this.productService.addProduct(product)
+  AddParcel(){
+    let parcel :Parcel= {...this.addParcel.value, id:Math.floor(Math.random() *10000)};
+    this.parcelService.addParcel(parcel)
   }
 }

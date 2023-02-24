@@ -59,3 +59,14 @@
 .left1 p{
     font-size: 20px;
 }
+.container{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.order{
+    padding: 10px;
+    border: 2px solid black;
+}

@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/Interfaces';
-import { ProductService } from '../ProductService/product.service';
+import { Parcel } from 'src/app/Interfaces/parcel';
+import { ParcelService } from '../ProductService/product.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductResolverService implements Resolve<Product> {
-    constructor( private productService:ProductService){}
+export class ProductResolverService implements Resolve<Parcel> {
+    constructor( private parcelService:ParcelService){}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
-  : Product | Observable<Product> | Promise<Product> {
-   return this.productService.getOneProduct(+route.params['id'])
+  : Parcel | Observable<Parcel> | Promise<Parcel> {
+   return this.parcelService.getOneParcel(+route.params['id'])
   }
 }

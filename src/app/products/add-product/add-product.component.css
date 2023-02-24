@@ -33,8 +33,11 @@
     .right button{
         padding: 5px 15px;
         border-style: none;
-        background-color: coral;
+        background-color: rgb(100, 255, 80);
         color: white;
+        height: 3rem;
+        width: fit-content;
+        align-self: center;
     }
 
     input.ng-invalid.ng-touched{

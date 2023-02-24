@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
-import { Product } from '../../Interfaces';
-import { ProductService } from '../../Services/ProductService/product.service';
+import { Parcel } from '../../Interfaces/parcel';
+import { ParcelService } from '../../Services/ProductService/product.service';
 
 @Component({
   selector: 'app-category',
@@ -13,13 +13,13 @@ import { ProductService } from '../../Services/ProductService/product.service';
 })
 export class CategoryComponent implements OnInit {
 
-  products:Product[]=[]
-  constructor(private productService:ProductService, private route:ActivatedRoute){}
+  parcels:Parcel[]=[]
+  constructor(private parcelService:ParcelService, private route:ActivatedRoute){}
   
   ngOnInit(): void {
-  this.route.queryParams.subscribe((params:Params)=>{
-    this.products=this.productService.getProductinaCategory(params['category'])
-  })
+  // this.route.queryParams.subscribe((params:Params)=>{
+  //   this.products=this.parcelService.getProductinaCategory(params['category'])
+  // })
   }
 
 }

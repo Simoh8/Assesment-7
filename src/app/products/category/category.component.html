@@ -1,11 +1,11 @@
 <div  class="container">
-    <div class="content" *ngFor=" let product of products"
-     [routerLink]="['/products', product.id]"
-     [queryParams]="{showPrice:product.id>2?'false':'true'}"
+    <div class="content" *ngFor=" let parcel of parcels"
+     [routerLink]="['/products', parcel.id]"
+     [queryParams]="{showEmail:parcel.id>2?'false':'true'}"
      >
-        <img src={{product.image}} alt="">
-        <h1>{{product.name | uppercase}}</h1>
-        <p>{{product.description}}</p>
-        <p>{{product.price|currency:'KSH ':'symbol':'3.0-0'}}</p>
+      
+        <h1>{{parcel.name | uppercase}}</h1>
+        <p>{{parcel.email | uppercase}}</p>
+        <p>{{parcel.destination | uppercase}}</p>
     </div>
 </div>
